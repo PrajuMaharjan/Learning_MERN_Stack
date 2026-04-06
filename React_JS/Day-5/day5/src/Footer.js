@@ -1,8 +1,7 @@
-const Footer=()=>{
-    const name="Praju Maharjan";
+const Footer=({length})=>{
     return(
-        <footer className="App-header">
-        <p>{name}</p>
+        <footer className="App-footer">
+        <p>There are {length} names total.</p>
         </footer>
     )
 }

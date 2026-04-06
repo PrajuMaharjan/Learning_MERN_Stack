@@ -13,9 +13,20 @@
   }
 }
 
-.Content{
+.App-header{
   background-color: #282c34;
   min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-content{
+  background-color: #282c34;
+  margin-bottom: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,10 +35,10 @@
   color: white;
 }
 
-.App-header{
+.App-footer{
   background-color: #282c34;
-  min-height: 250px;
   display: flex;
+  min-height:200px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
