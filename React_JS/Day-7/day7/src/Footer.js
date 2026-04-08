@@ -1,7 +1,7 @@
 const Footer=({length})=>{
     return(
         <footer className="App-footer">
-        <p>There are {length} names total.</p>
+        <p>There are {length} names in the default list.</p>
         </footer>
     )
 }

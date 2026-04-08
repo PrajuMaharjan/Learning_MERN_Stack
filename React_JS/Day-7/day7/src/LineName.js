@@ -2,7 +2,7 @@ import {FaTrashAlt} from 'react-icons/fa';
 
 const LineName=({name,handleDelete})=>{
     return (
-                    <li className="name" key={name.id}>
+                    <li className="name">
                         <label>Hello {name.name}!   </label>
                         <FaTrashAlt 
                             role="button"

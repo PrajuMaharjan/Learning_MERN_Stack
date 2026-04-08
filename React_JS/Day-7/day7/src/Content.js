@@ -1,6 +1,6 @@
 import NameList from './NameList';
 
-const Content=({name,handleAdd,handleDelete})=>{
+const Content=({name,handleAdd,handleDelete,handleReset})=>{
     return(
         <main className="App-content">
          {name.length ? (
@@ -12,7 +12,7 @@ const Content=({name,handleAdd,handleDelete})=>{
          ) :(
             <p>There are no names</p>
          )}
-                    <button onClick={handleAdd}>Add Name</button>
+         <button onClick={()=>handleReset()}>Reset</button>
         </main>
     )
 };

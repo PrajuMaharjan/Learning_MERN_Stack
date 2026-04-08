@@ -1,4 +1,5 @@
 import Header from './Header';
+import AddName from './AddName';
 import Content from './Content';
 import Footer from './Footer';
 import { useState } from "react";
@@ -24,38 +25,58 @@ function App() {
               name:"Karen",
           }
       ];
+    
+    const [newName,setNewName]=useState("");
 
     const [name,setName]=useState(()=>{
-            const storedNames=localStorage.getItem("Names");
-            return storedNames ? JSON.parse(storedNames):names;
+        const storedNames=localStorage.getItem("Names");
+        return storedNames ? JSON.parse(storedNames):names;
         });
+
+    const setAndSaveNames=(newNames)=>{
+      setName(newNames);
+      localStorage.setItem("Names",JSON.stringify(newNames));
+    }
+
+    const addName=(newName)=>{
+          const id=name.length ? name[name.length-1].id + 1 : 1;
+          const addedName={id,name:newName};
+          const listNames=[...name,addedName];
+           setAndSaveNames(listNames);
+    }
         
         const handleDelete=(id)=>{
-            const updatedNames=name.filter(name=>name.id!==id);
-            setName(updatedNames);
-            localStorage.setItem("Names",JSON.stringify(updatedNames));
+            const updatedNames=name.filter((name)=>name.id!==id);
+            setAndSaveNames(updatedNames);
         }
     
-        const handleAdd=()=>{
-            const missingNames=names.filter((person)=>!name.some((current)=>current.id===person.id)
-        );
-        if (!missingNames.length) return;
-    
-        const updatedNames=[...name,missingNames[0]];
-        setName(updatedNames);
-        localStorage.setItem("Names",JSON.stringify(updatedNames));
+        const handleAdd=(e)=>{
+            e.preventDefault(); 
+            if(!newName) return;
+          
+            addName(newName);
+            setNewName("");
+      }
+
+      const handleReset=()=>{
+        setAndSaveNames(names);
       }
       
 
   return (
     <div className="App">
       <Header title="
-        Day 5 of Learning MERN Stack(Chapter 1:React JS)"
+        Day 7 of Learning MERN Stack(Chapter 1:React JS)"
+        />
+        <AddName 
+            newName={newName}
+            setNewName={setNewName}
+            handleAdd={handleAdd}
         />
       <Content 
         name={name}
-        handleAdd={handleAdd}
         handleDelete={handleDelete}
+        handleReset={handleReset}
       />
       <Footer length={names.length}/>
     </div>
