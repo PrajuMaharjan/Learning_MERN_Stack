@@ -1,4 +1,5 @@
 import Header from './Header';
+import SearchName from './SearchName';
 import AddName from './AddName';
 import Content from './Content';
 import Footer from './Footer';
@@ -27,6 +28,7 @@ function App() {
       ];
     
     const [newName,setNewName]=useState("");
+    const [search,setSearch]=useState("");
 
     const [name,setName]=useState(()=>{
         const storedNames=localStorage.getItem("Names");
@@ -73,8 +75,12 @@ function App() {
             setNewName={setNewName}
             handleAdd={handleAdd}
         />
+        <SearchName
+            search={search}
+            setSearch={setSearch}
+        />
       <Content 
-        name={name}
+        name={name.filter(names=>((names.name).toLowerCase()).includes(search.toLowerCase()))}
         handleDelete={handleDelete}
         handleReset={handleReset}
       />

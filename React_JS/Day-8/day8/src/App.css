@@ -23,6 +23,10 @@
   color: white;
 }
 
+.searchForm{
+  color:white;
+  margin-top: 20px;
+}
 .App-content{
   margin-bottom: 0px;
   display: flex;
