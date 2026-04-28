@@ -1,23 +1,45 @@
+import React from 'react'
+import { useState } from 'react';
+import "./App.css";
+import Display from './Display';
+import ButtonGrid from './ButtonGrid';
 
+const App = () => {
+    const [input,setInput]=useState("");
 
-function App() {
+    const handleClick=(value)=>{
+        setInput((prev)=>prev+value);
+    }
+    
+    const handleDelete=()=>{
+        setInput((prev)=>prev.slice(0,-1));
+    }
+
+    const handleClear=()=>{
+        setInput("");
+    }
+
+    const handleEquals=()=>{
+        try{
+            setInput(eval(input).toString());
+        }catch(error){
+            setInput("Error");
+        }
+    }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="calculator-container">
+        <div className='calculator'>
+            <Display input={input} />
+            <ButtonGrid 
+                onInput={handleClick}
+                onDelete={handleDelete}
+                onClear={handleClear}
+                onEquals={handleEquals}
+            />
+        </div>
     </div>
   );
-}
+};
 
 export default App;
