@@ -1,0 +1,42 @@
+.App{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.square{
+    height:400px;
+    width: 400px;
+    display: grid;
+    place-content: center;
+    border-radius: 4px;
+    border: 2px solid black;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.colorInput{
+    width: 400px;
+    margin-top:14px;
+    border: 2px solid black;
+    border-radius: 4px;
+    height: 30px;
+    font-weight: bold;
+}
+
+button{
+    width: 400px;
+    display: block;
+    margin-top: 14px;
+    border: 2px solid black;
+    border-radius: 4px;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+}
+
+button:hover{
+    cursor:pointer;
+}

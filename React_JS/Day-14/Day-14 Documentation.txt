@@ -1,0 +1,98 @@
+📘 Day 14 – Color Input Challenge (React)
+📌 Overview
+
+On Day 14, I completed Chapter 10: Project Challenge from the React tutorial.
+
+In this project, I built a small interactive app where the user can type a color into an input field, and a square dynamically updates its background color based on the entered value.
+
+The project also includes:
+
+A text display inside the square that reflects the input value
+A button to toggle the text color between black and white for better visibility
+
+This challenge helped reinforce important React concepts related to state, controlled inputs, dynamic styling, and event handling.
+
+⚙️ Features
+🎨 Dynamic background color updates
+⌨️ Controlled input field
+📝 Text inside square reflects input value
+🔄 Toggle text color (black ↔ white)
+⚡ Real-time UI updates using React state
+🧩 Components Used
+1. App
+Main/root component
+Manages application state
+Passes data and functions to child components
+2. Input
+Handles user input
+Updates state as user types
+3. Square
+Displays the colored square
+Dynamically changes background color
+Displays current text input
+4. Button
+Toggles text color
+Improves text visibility on dark backgrounds
+🔁 Core Logic
+🎯 Controlled Input
+
+The value of the input field is controlled using React state.
+
+Example:
+
+const [color, setColor] = useState("");
+
+Whenever the user types:
+
+onChange={(e) => setColor(e.target.value)}
+
+React updates the UI instantly.
+
+🎨 Dynamic Styling
+
+The square background changes dynamically:
+
+style={{ backgroundColor: color }}
+
+The text inside the square also updates based on the input value.
+
+🔄 Text Color Toggle
+
+A button toggles the text color between black and white:
+
+setTextColor(textColor === "black" ? "white" : "black");
+
+This improves readability when darker colors are used.
+
+🧠 Key Concepts Learned
+🔹 Controlled Inputs
+React controls the input value using state
+🔹 Dynamic Styling
+Inline styles can be updated based on state changes
+🔹 State Management
+UI automatically re-renders when state changes
+🔹 Event Handling
+Used button clicks and input events to trigger updates
+🚀 Improvements for Future
+Add color validation
+Add preset color buttons
+Add HEX/RGB support
+Add smooth transitions between colors
+📝 New Change Going Forward
+
+Starting from Day 14 onward:
+
+I will no longer attach screenshots of the code
+Instead, I will share the GitHub repository link for each project
+
+This will help keep the posts cleaner while also making the full source code accessible.
+
+💡 Summary
+
+This project was a great exercise in understanding how React handles user input and dynamically updates the UI in real time.
+
+Even though the project was simple, it strengthened my understanding of:
+
+Controlled components
+State-driven rendering
+Dynamic styling in React
