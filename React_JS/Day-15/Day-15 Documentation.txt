@@ -1,0 +1,89 @@
+📘 Day 15 – Understanding the useEffect Hook in React
+📌 Overview
+
+On Day 15, I completed Chapter 11: useEffect Hook in React.
+
+The main focus of today’s learning was understanding how useEffect works, when it runs, and how it can be used to manage side effects in React applications.
+
+To practice the concept, I improved my existing NameList App by moving the localStorage-saving logic into useEffect.
+
+⚙️ What I Learned
+🔹 What is useEffect?
+
+useEffect is a React Hook used to handle side effects inside functional components.
+
+Examples of side effects:
+
+Saving data to localStorage
+Fetching data from APIs
+Timers and intervals
+DOM updates
+🔁 How useEffect Works
+1. Runs After Every Render
+
+Without a dependency array:
+
+useEffect(() => {
+  console.log("Runs after every render");
+});
+Executes after every component render
+2. Runs Only Once (Initial Load)
+
+Using an empty dependency array:
+
+useEffect(() => {
+  console.log("Runs only once");
+}, []);
+Runs only when the component first loads
+3. Runs When Dependency Changes
+
+Using dependencies inside the array:
+
+useEffect(() => {
+  console.log("Runs when nameList changes");
+}, [nameList]);
+Runs whenever nameList changes
+🧩 Applying useEffect to the NameList App
+📌 Previous Approach
+
+Previously, I used a function called:
+
+setAndSaveNames()
+
+This function had two responsibilities:
+
+Updating the names state
+Saving names to localStorage
+📌 Improved Approach Using useEffect
+
+Instead of manually saving to localStorage every time, I moved the saving logic into useEffect.
+
+Example:
+
+useEffect(() => {
+  localStorage.setItem(
+    "nameList",
+    JSON.stringify(nameList)
+  );
+}, [nameList]);
+
+Now:
+
+Whenever nameList changes,
+React automatically saves it to localStorage.
+🧠 Key Concepts Learned
+🔹 Side Effects
+Actions outside normal rendering logic
+🔹 Dependency Arrays
+Control when useEffect runs
+🔹 Cleaner Code Structure
+Separated state update logic from storage logic
+🔹 Automatic Synchronization
+localStorage stays updated automatically
+🚀 Benefits of This Refactor
+
+✅ Cleaner code
+✅ Better separation of concerns
+✅ Easier maintenance
+✅ Less repeated logic
+✅ More scalable structure
